@@ -12,15 +12,14 @@ class CurrencySeed extends Seeder
     public function run()
     {
         $items = [
-            
             ['id' => 1, 'title' => 'USD', 'symbol' => '$', 'money_format_thousands' => ',', 'money_format_decimal' => '.', 'created_by_id' => 1],
             ['id' => 2, 'title' => 'EUR', 'symbol' => '€', 'money_format_thousands' => '.', 'money_format_decimal' => ',', 'created_by_id' => 1],
             ['id' => 3, 'title' => 'GBP', 'symbol' => '£', 'money_format_thousands' => '.', 'money_format_decimal' => ',', 'created_by_id' => 1],
-
+            ['id' => 4, 'title' => 'NGN', 'symbol' => '₦', 'money_format_thousands' => ',', 'money_format_decimal' => '.', 'created_by_id' => 1],
         ];
 
         foreach ($items as $item) {
-            \App\Currency::create($item);
+            \App\Currency::updateOrInsert(['id' => $item['id']], $item);
         }
     }
 }

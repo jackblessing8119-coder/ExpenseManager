@@ -1,43 +1,70 @@
-# Laravel 5.5 based system for managing expenses and income
+# ExpenseManager
 
-It is a demo project for demonstrating what can be generated with [QuickAdminPanel](https://quickadminpanel.com) tool.
+ExpenseManager is a Laravel-based web application for tracking expenses, incomes, categories, and generating monthly financial reports. It supports multiple currencies, including Naira (₦).
 
-Features:
-- CRUDs for income/expenses and their categories
-- Monthly reports by income/expenses and their categories
-- Multi-tenancy: Ability to register new user who sees only their categories/entries (admin sees all).
-- Formatting currency: ability to add/edit currencies with their formats (comma/dot separation etc.)
+## Features
+- User authentication and roles
+- Expense and income tracking
+- Category management for expenses and incomes
+- Multi-currency support
+- Monthly financial reports
+- Admin dashboard
 
-## Clickable live-demo
+## Requirements
+- PHP >= 7.0
+- Composer
+- MySQL or compatible database
+- Node.js & npm (for frontend assets)
+- XAMPP or similar local server (recommended for Windows)
 
-[demo-expenses.quickadminpanel.com](http://demo-expenses.quickadminpanel.com)
+## Installation
 
-- __Email__: admin@admin.com
-- __Pass__: password
+1. **Clone the repository**
+	```sh
+	git clone https://github.com/LaravelDaily/ExpenseManager.git
+	cd ExpenseManager
+	```
 
-![Expense manager screenshot](https://quickadminpanel.com/assets/pages/demos/demo-expenses-01.png)
+2. **Install PHP dependencies**
+	```sh
+	composer install
+	```
 
-![Expense manager screenshot currency](https://quickadminpanel.com/assets/pages/demos/demo-expenses-02.png)
+3. **Install Node.js dependencies**
+	```sh
+	npm install
+	npm run dev
+	```
 
-## How to use
+4. **Set up environment file**
+	```sh
+	cp .env.example .env
+	```
+	Edit `.env` and set your database credentials.
 
-- Clone the repository with __git clone__
-- Copy __.env.example__ file to __.env__ and edit database credentials there
-- Run __composer install__
-- Run __php artisan key:generate__
-- Run __php artisan migrate --seed__ (it has some seeded data for your testing)
-- That's it: launch the main URL and login with default credentials __admin@admin.com__ - __password__
+5. **Generate application key**
+	```sh
+	php artisan key:generate
+	```
+
+6. **Run migrations and seeders**
+	```sh
+	php artisan migrate --seed
+	```
+
+7. **Start the development server**
+	```sh
+	php artisan serve
+	```
+	Visit [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser.
+
+## Default Admin Login
+- **Email:** admin@admin.com
+- **Password:** admin (or check the seeded password hash in `UserSeed.php`)
+
+## Notes
+- You can change the default currency for users in the database or via the admin panel.
+- For production, set up proper environment variables and use `npm run production` for optimized assets.
 
 ## License
-
-Basically, feel free to use and re-use any way you want.
-
----
-
-## More from our LaravelDaily Team
-
-- Read our [Daily Blog with Laravel Tutorials](https://laraveldaily.com)
-- FREE E-book: [50 Laravel Quick Tips (and counting)](https://laraveldaily.com/free-e-book-40-laravel-quick-tips-and-counting/)
-- Check out our adminpanel generator QuickAdminPanel: [Laravel version](https://quickadminpanel.com) and [Vue.js version](https://vue.quickadminpanel.com)
-- Subscribe to our [YouTube channel Laravel Business](https://www.youtube.com/channel/UCTuplgOBi6tJIlesIboymGA)
-- Enroll in our [Laravel Online Courses](https://laraveldaily.teachable.com/)
+MIT
